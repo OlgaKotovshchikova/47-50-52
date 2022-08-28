@@ -34,22 +34,38 @@ namespace _47_50_52
 
         static void TaskFourtyseven()
         {
-            Console.Write("Введите количество строк и столбцов через Enter ");
+            Console.WriteLine("Введите количество строк и столбцов через Enter ");
             int rows = Convert.ToInt32(Console.ReadLine());
             int columns = Convert.ToInt32(Console.ReadLine());
-            double[,] matrix = new double[rows, columns];
+            PrintArray(FillArray(rows, columns));
+        }
 
+        static double[,] FillArray(int rows, int columns)
+        {
+            double[,] matrix = new double[rows, columns];
             Random rand = new Random();
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    matrix[i, j] = Math.Round(rand.NextDouble()*10, 2);
+                    matrix[i, j] = Math.Round(rand.NextDouble() * 10, 2);
+                }
+            }
+            return matrix;
+        }
+
+        static void PrintArray(double[,] matrix)
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
                     Console.Write($"{matrix[i, j]} ");
                 }
                 Console.WriteLine();
             }
         }
+
         #endregion
 
         #region Задача 50
@@ -61,9 +77,20 @@ namespace _47_50_52
         8 4 2 4
         1 7 -> такого числа в массиве нет*/
 
-        static void TaskFifty()
+        static void TaskFifty() 
         {
-
+            double[,] matrix = FillArray(4, 5);
+            Console.WriteLine("Введите номер строки и номер столбца через Enter ");
+            int row = Convert.ToInt32(Console.ReadLine());
+            int column = Convert.ToInt32(Console.ReadLine());
+            PrintArray(matrix);
+            if (row > matrix.GetLength(0) | column > matrix.GetLength(1))
+                Console.WriteLine("Такого числа в массиве нет");
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine(matrix[row, column]);
+            }
         }
         #endregion
 
