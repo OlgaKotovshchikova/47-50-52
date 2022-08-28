@@ -105,7 +105,41 @@ namespace _47_50_52
 
         static void TaskFiftytwo()
         {
+            int[,] matrix = new int[3, 4];
+            Random rand = new Random();
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    matrix[i, j] = rand.Next(1, 11);
+                }
+            }
 
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    Console.Write($"{matrix[i, j]} ");
+                }
+                Console.WriteLine();
+            }
+
+            double[] results = new double[matrix.GetLength(1)];
+
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                double result = 0;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    result += matrix[i, j];
+                }
+                results[j] = result / matrix.GetLength(0);
+            }
+            
+            for (int i = 0; i < results.Length; i++)
+            {
+                Console.Write($"{results[i]} ");
+            }
         }
         #endregion
     }
