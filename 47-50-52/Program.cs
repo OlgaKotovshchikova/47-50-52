@@ -85,7 +85,7 @@ namespace _47_50_52
             int column = Convert.ToInt32(Console.ReadLine());
             PrintArray(matrix);
             if (row > matrix.GetLength(0) | column > matrix.GetLength(1))
-                Console.WriteLine("Такого числа в массиве нет");
+                Console.WriteLine("Такого элемента в массиве нет");
             else
             {
                 Console.WriteLine();
@@ -93,7 +93,6 @@ namespace _47_50_52
             }
         }
         #endregion
-
 
         #region Задача 52
         /*Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
@@ -111,10 +110,10 @@ namespace _47_50_52
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    matrix[i, j] = rand.Next(1, 11);
+                    matrix[i, j] = rand.Next(1, 10);
                 }
             }
-
+            Console.WriteLine();
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
@@ -133,12 +132,12 @@ namespace _47_50_52
                 {
                     result += matrix[i, j];
                 }
-                results[j] = result / matrix.GetLength(0);
+                results[j] = Math.Round(result / matrix.GetLength(0), 2);
             }
-            
+          
             for (int i = 0; i < results.Length; i++)
             {
-                Console.Write($"{results[i]} ");
+                Console.Write($"{results[i]}; ");
             }
         }
         #endregion
